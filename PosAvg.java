@@ -20,9 +20,20 @@ public class PosAvg {
 		readFile();  // read file function 
 		System.out.println("Read stations into program!");
 		System.out.println("The MesoStation is:" + MesoStation);
+		indexOfStation();
+		System.out.println("About to attempt calculateNs with:" + stationIndex);
 		
-		calculateNs(stationIndex); // Calculate n-1,n+1,n-2,n+2 for all except first and last 2 stations
+		// Only prints n if there is n +/- 2
+		if (stationIndex >= 2 && stationIndex <= 117)
+		{
+			calculateNs(stationIndex); // Calculate n-1,n+1,n-2,n+2 for all except first and last 2 stations
+		}
+		else {
+			System.out.println("Will not calculate n +/- 1,2 if there is no n +/- 1,2 ! ");
+			System.out.println("N value: " + stationIndex + ".");
+		}
 		// toString
+		
 		
 	}
 	//try to read file method
@@ -97,12 +108,26 @@ public class PosAvg {
 		// skip the first 2 and last 
 		// 0,1,2,3,......,117,118,119
 		// skip 0,1,118,119
+		
+		if (stationIndex == 0) {
+			
+			
+		}
+		
 		this.stationIndex = stationIndex;
 		
-		String nMinusOne = stations[stationIndex-1];
-		String nPlusOne = stations[stationIndex+1];
+		String nMinusOne = stations[stationIndex-2];
+		String nPlusOne = stations[stationIndex];
+		String nMinusTwo = stations[stationIndex-3];
+		String nPlusTwo = stations[stationIndex+1];
+		
+		System.out.println("Print n:" + stations[stationIndex-1]);
 		System.out.println("Print n-1:" + nMinusOne);
 		System.out.println("Print n+1:" + nPlusOne);
+		System.out.println("Print n-2:" + nMinusTwo);
+		System.out.println("Print n+2:" + nPlusTwo);
+		
+		
 		// why isnt calculateNs working??
 
 		

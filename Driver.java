@@ -9,7 +9,7 @@ public class Driver
 	public static void main(String[] args) throws IOException 
 	{
 		// MesoInherit mesoInherit = new MesoInherit("OKCE");
-		PosAvg posAvg = new PosAvg("OKCE");
+		PosAvg posAvg = new PosAvg("ACME");
 		System.out.println("The Index of the city is: " + posAvg.indexOfStation());
 		//System.out.println(posAvg);
 		
