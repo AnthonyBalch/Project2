@@ -14,6 +14,11 @@ public class MesoInherit { // extends MesoAbstract { REMOVED ABSTRACT TO TEST
 		this.MesoStation = MesoStation;
 		
 		readFile();  // read file function 
+		System.out.println("Read stations into program!");
+		System.out.println("The element in 0th array is: " + stations[0]);
+		System.out.println("The element in 1st array is: " + stations[0+1]);
+
+		
 	}
 	
 	//try to read file method
