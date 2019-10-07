@@ -7,6 +7,10 @@ public class PosAvg {
 	String MesoStation;		// Station we are interested in.
 	String finalstring = "YUKO";
 	int stationIndex = 0;
+	String nPlusOne;
+	String nMinusOne;
+	String nPlusTwo;
+	String nMinusTwo;
 	
 	String[] stations = new String[5];  // array of all the station strings.
 	
@@ -15,14 +19,11 @@ public class PosAvg {
 	
 		readFile();  // read file function 
 		System.out.println("Read stations into program!");
-		System.out.println("The element in 0th array is: " + stations[0]);
-		System.out.println("The element in 1st array is: " + stations[0+1]);
 		System.out.println("The MesoStation is:" + MesoStation);
 		
-		searchArray(); // IMPLEMENT THIS, SEARCH THROUGH ARRAY FOR INDEX
+		calculateNs(stationIndex); // Calculate n-1,n+1,n-2,n+2 for all except first and last 2 stations
+		// toString
 		
-		// toString1(); // IMPLEMENT THIS
-		// toString2(); // IMLPEMENT THIS IF
 	}
 	//try to read file method
 		public void readFile() {
@@ -79,20 +80,36 @@ public class PosAvg {
 			
 			br.close();
 		}
-	
-		public int searchArray() {
+		
+		
+		// Search through array looking for the index number for the station
+		public int indexOfStation() {
 			int i = 0;
 			while(!stations[i].contentEquals(MesoStation)) {
 				i++;
 			}
 			stationIndex = i + 1;
-			System.out.println("Returning: " + stationIndex);
 			return stationIndex;
 			
 		}
-	
-	/*	public String toString1() {
-		String example = stations[0];
-		return String.format("The Index of the city is: %d\n", stationIndex);
-	}  */
+	//Calculate the +/- 1 and 2 for all indexes.
+	public void calculateNs(int stationIndex) {
+		// skip the first 2 and last 
+		// 0,1,2,3,......,117,118,119
+		// skip 0,1,118,119
+		this.stationIndex = stationIndex;
+		
+		String nMinusOne = stations[stationIndex-1];
+		String nPlusOne = stations[stationIndex+1];
+		System.out.println("Print n-1:" + nMinusOne);
+		System.out.println("Print n+1:" + nPlusOne);
+		// why isnt calculateNs working??
+
+		
+		/* for(int i = 2; i < 118; i++) {
+			//for n-1
+			String nMinusOne = stations[i-1];
+			String nPlusOne = stations[i+1];
+		} */
+	}
 }

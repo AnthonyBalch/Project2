@@ -2,6 +2,7 @@
  * @author Mohammad Mukhtaruzzaman
  * @version 2019-09-18
 */
+/* DISABLED
 public class MesoStation 
 {
 	private String stID;
@@ -14,4 +15,4 @@ public class MesoStation
 	public String getStID() {
 		return stID;
 	}
-}
+} */
