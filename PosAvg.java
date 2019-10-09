@@ -3,9 +3,9 @@ import java.io.FileReader;
 import java.io.IOException;
 
 public class PosAvg {
-	String STID_COLUMN = "STID"; //Constant variable, Station IDs follow this line.
-	String MesoStation;		// Station we are interested in.
-	String finalstring = "YUKO";
+	String STID_COLUMN = "STID";    // Constant variable, Station IDs follow this line.
+	String MesoStation;	        	// Station we are interested in.
+	String finalstring = "YUKO";    // Final station in dataset.
 	int stationIndex = 0;
 	String nPlusOne;
 	String nMinusOne;
@@ -18,22 +18,15 @@ public class PosAvg {
 		this.MesoStation = MesoStation;
 	
 		readFile();  // read file function 
-		System.out.println("Read stations into program!");
-		System.out.println("The MesoStation is:" + MesoStation);
-		indexOfStation();
-		System.out.println("About to attempt calculateNs with:" + stationIndex);
-		
-		// Only prints n if there is n +/- 2
-		if (stationIndex >= 2 && stationIndex <= 117)
-		{
+		indexOfStation();		
+		// Only calculate n if it has an n+/-1 and n+/-2
+		if (stationIndex >= 3 && stationIndex <= 118) {
 			calculateNs(stationIndex); // Calculate n-1,n+1,n-2,n+2 for all except first and last 2 stations
 		}
-		else {
-			System.out.println("Will not calculate n +/- 1,2 if there is no n +/- 1,2 ! ");
-			System.out.println("N value: " + stationIndex + ".");
-		}
-		// toString
 		
+		if (stationIndex >= 3 && stationIndex <= 118) {
+			toString();
+		}
 		
 	}
 	//try to read file method
@@ -102,16 +95,22 @@ public class PosAvg {
 	public void calculateNs(int stationIndex) {
 		this.stationIndex = stationIndex;
 		
-		String nMinusOne = stations[stationIndex-2];
-		String nPlusOne = stations[stationIndex];
-		String nMinusTwo = stations[stationIndex-3];
-		String nPlusTwo = stations[stationIndex+1];
+		nMinusOne = stations[stationIndex-2];
+		nPlusOne = stations[stationIndex];
+		nMinusTwo = stations[stationIndex-3];
+		nPlusTwo = stations[stationIndex+1];
+		}
+	
+	public String toString() {
+		// returns string.format if n IS NOT one of the first 2 or last 2 stations in list
+		// returns default statement if n IS one of first or last 2 stations in list
+		String returnString="This index does not have an index of (n+/-1) or (n+/-2).";
+		if (stationIndex >= 3 && stationIndex <= 118) {
+			returnString = String.format("This index is average of %s and %s, %s and %s, and so on.", 
+					nMinusOne, nPlusOne, nMinusTwo, nPlusTwo);
+		}
+		return returnString;
 		
-		System.out.println("Print n:" + stations[stationIndex-1]);
-		System.out.println("Print n-1:" + nMinusOne);
-		System.out.println("Print n+1:" + nPlusOne);
-		System.out.println("Print n-2:" + nMinusTwo);
-		System.out.println("Print n+2:" + nPlusTwo);
 		
 	}
 }
