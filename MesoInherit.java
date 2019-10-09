@@ -18,7 +18,8 @@ public class MesoInherit extends MesoAbstract{ //REMOVED ABSTRACT TO TEST
 		readFile();  // read file function 
 
 		
-		calAverage(); // calculate ascii values
+		calAverage(); // calculate ascii values and creates average
+		letterAverage(); //Converts average ascii value into character.
 
 		
 	}
@@ -116,7 +117,6 @@ public class MesoInherit extends MesoAbstract{ //REMOVED ABSTRACT TO TEST
 	char letterAverage() {
 		int answer = intArray[2];
 		char asciiChar = (char)(answer);
-		System.out.println("PRITING:" + asciiChar);
 		return asciiChar;
 	} 
 }
