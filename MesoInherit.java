@@ -6,7 +6,6 @@ public class MesoInherit extends MesoAbstract{ //REMOVED ABSTRACT TO TEST
 	String STID_COLUMN = "STID"; //Constant variable, Station IDs follow this line.
 	String MesoStation;		// Station we are interested in.
 	String finalstring = "YUKO";
-	
 	String[] stations = new String[5];  // array of all the station strings.
 
 	char charIndex;  // creates char for calAverage
@@ -51,7 +50,6 @@ public class MesoInherit extends MesoAbstract{ //REMOVED ABSTRACT TO TEST
 		strg = br.readLine();
 		strgArray = strg.split(" ");
 		firstElement = strgArray[1];
-		// System.out.println("The first element in: " + firstElement); // Show me whats stored HELPER
 		}
 		
 		// Once STID is found, we can begin reading in the strings into an. array.
@@ -62,7 +60,6 @@ public class MesoInherit extends MesoAbstract{ //REMOVED ABSTRACT TO TEST
 		strgArray = strg.split(" ");
 		index = strgArray[1];
 		stations[indexCount] = index;
-		// System.out.println(stations[indexCount]);            // Show me whats printed HELPER
 		indexCount++;	
 		
 		// creates an array +1 bigger than the original, when limit is reached.
