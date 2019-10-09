@@ -2,21 +2,23 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 
-public class MesoInherit { // extends MesoAbstract { REMOVED ABSTRACT TO TEST 
+public class MesoInherit extends MesoAbstract{ //REMOVED ABSTRACT TO TEST 
 	String STID_COLUMN = "STID"; //Constant variable, Station IDs follow this line.
 	String MesoStation;		// Station we are interested in.
 	String finalstring = "YUKO";
 	
 	String[] stations = new String[5];  // array of all the station strings.
 
+	char charIndex;  // creates char for calAverage
+	int[] intArray = new int[4];
 	
 	MesoInherit(String MesoStation) {
 		this.MesoStation = MesoStation;
 		
 		readFile();  // read file function 
-		System.out.println("Read stations into program!");
-		System.out.println("The element in 0th array is: " + stations[0]);
-		System.out.println("The element in 1st array is: " + stations[0+1]);
+
+		
+		calAverage(); // calculate ascii values
 
 		
 	}
@@ -76,16 +78,45 @@ public class MesoInherit { // extends MesoAbstract { REMOVED ABSTRACT TO TEST
 	}
 	
 	
-	/*
 	//calAverage Override
 	@Override
 	public int[] calAverage() {
+		int sum = 0;
+		double answer = 0.0;
+		// sum ascii values and then divide by 4, converting int to double.
+		for(int i = 0; i < 4; i++) {
+			charIndex = MesoStation.charAt(i);
+			int ascii =(int) charIndex;
+			sum = sum + ascii;
+			answer = sum;
+			answer = answer/4;
+			//System.out.println("Sum after:" + i + " loops :" + sum);
+		}
+		double answer1 = answer;
+		double answer2 = answer;
+		double answer3 = answer;
 		
+		//round to ceiling
+		answer1 = Math.ceil(answer1);
+		intArray[0] = (int) answer1;
+		
+		//round to floor
+		answer2 = Math.floor(answer2);
+		intArray[1] = (int) answer2;
+		
+		//round normally (average)
+		answer3 = Math.round(answer3);
+		intArray[2] = (int) answer3;
+		
+		return intArray;
 	}
 	
 	//letterAverage Override
 	@Override
 	char letterAverage() {
-		
-	} */
+		int answer = intArray[2];
+		char asciiChar = (char)(answer);
+		System.out.println("PRITING:" + asciiChar);
+		return asciiChar;
+	} 
 }
