@@ -19,14 +19,6 @@ public class LetterAvg {
 	LetterAvg(char letter){
 		this.letter = letter;
 		readFile();  // read file function
-
-		int j = 0;
-		while(j < counter) {
-			System.out.println(output[j]);
-			j++;
-		}
-		
-		toString();
 	}
 	
 	//try to read file method
@@ -109,9 +101,15 @@ public class LetterAvg {
 		}
 	}
 	// Takes in 1 long string, splits into array of strings, prints strings 1 line at at time
-	public String toString(String stationString) {
-		String s = "hello";
+	public String toString() {
+		String outputString ="They are:\n";
+
 		
-		return s;
+		for(int i = 0; i < counter; i++){
+			outputString = outputString + output[i] + "\n";
+		}
+		
+		return outputString;
+		
 	}
 }
