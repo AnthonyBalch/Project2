@@ -102,7 +102,7 @@ public class LetterAvg {
 	}
 	// Takes in 1 long string, splits into array of strings, prints strings 1 line at at time
 	public String toString() {
-		String outputString ="They are:\n";
+		String outputString ="\n" + "They are:" + "\n";
 
 		
 		for(int i = 0; i < counter; i++){
