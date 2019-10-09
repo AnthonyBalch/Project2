@@ -11,8 +11,8 @@ public class MesoInherit extends MesoAbstract{ //REMOVED ABSTRACT TO TEST
 	char charIndex;  // creates char for calAverage
 	int[] intArray = new int[4];
 	
-	MesoInherit(String MesoStation) {
-		this.MesoStation = MesoStation;
+	public MesoInherit(MesoStation MesoStation) {
+		this.MesoStation = MesoStation.getStID();
 		
 		readFile();  // read file function 
 
@@ -23,6 +23,11 @@ public class MesoInherit extends MesoAbstract{ //REMOVED ABSTRACT TO TEST
 		
 	}
 	
+
+
+
+
+
 	//try to read file method
 	public void readFile() {
 		String filename = "Mesonet.txt";
